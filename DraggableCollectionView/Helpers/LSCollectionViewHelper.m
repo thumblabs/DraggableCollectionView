@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, _ScrollingDirection) {
 
 @implementation LSCollectionViewHelper
 
-- (id)initWithCollectionView:(UICollectionView *)collectionView
+- (id)initWithCollectionView:(PSTCollectionView *)collectionView
 {
     self = [super init];
     if (self) {
@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, _ScrollingDirection) {
     _panPressGestureRecognizer.enabled = canWarp && enabled;
 }
 
-- (UIImage *)imageFromCell:(UICollectionViewCell *)cell {
+- (UIImage *)imageFromCell:(PSTCollectionViewCell *)cell {
     UIGraphicsBeginImageContextWithOptions(cell.bounds.size, cell.isOpaque, 0.0f);
     [cell.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -171,7 +171,7 @@ typedef NS_ENUM(NSInteger, _ScrollingDirection) {
                 return;
             }
             // Create mock cell to drag around
-            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            PSTCollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
             cell.highlighted = NO;
             [mockCell removeFromSuperview];
             mockCell = [[UIImageView alloc] initWithFrame:cell.frame];
@@ -211,7 +211,7 @@ typedef NS_ENUM(NSInteger, _ScrollingDirection) {
             // Tell the collection view to move the item - triggers invalidateLayout
             [self.collectionView moveItemAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
             
-            UICollectionViewLayoutAttributes *layoutAttributes = [self.collectionView layoutAttributesForItemAtIndexPath:toIndexPath];
+            PSTCollectionViewLayoutAttributes *layoutAttributes = [self.collectionView layoutAttributesForItemAtIndexPath:toIndexPath];
             // Switch from mock to item
             [UIView
              animateWithDuration:0.3
@@ -247,7 +247,7 @@ typedef NS_ENUM(NSInteger, _ScrollingDirection) {
         
         // Scroll when necessary
         if (canScroll) {
-            UICollectionViewFlowLayout *scrollLayout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+            PSTCollectionViewFlowLayout *scrollLayout = (PSTCollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
             if([scrollLayout scrollDirection] == UICollectionViewScrollDirectionVertical) {
                 if (mockCell.center.y < (CGRectGetMinY(self.collectionView.bounds) + self.scrollingEdgeInsets.top)) {
                     [self setupScrollTimerInDirection:_ScrollingDirectionUp];

@@ -5,12 +5,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSTCollectionView.h"
 
 @interface LSCollectionViewHelper : NSObject <UIGestureRecognizerDelegate>
 
-- (id)initWithCollectionView:(UICollectionView *)collectionView;
+- (id)initWithCollectionView:(PSTCollectionView *)collectionView;
 
-@property (nonatomic, readonly) UICollectionView *collectionView;
+@property (nonatomic, readonly) PSTCollectionView *collectionView;
 @property (nonatomic, readonly) UIGestureRecognizer *longPressGestureRecognizer;
 @property (nonatomic, readonly) UIGestureRecognizer *panPressGestureRecognizer;
 @property (nonatomic, assign) UIEdgeInsets scrollingEdgeInsets;

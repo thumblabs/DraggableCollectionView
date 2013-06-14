@@ -8,7 +8,7 @@
 #import "LSCollectionViewHelper.h"
 #import <objc/runtime.h>
 
-@implementation UICollectionView (Draggable)
+@implementation PSTCollectionView (Draggable)
 
 - (LSCollectionViewHelper *)getHelper
 {

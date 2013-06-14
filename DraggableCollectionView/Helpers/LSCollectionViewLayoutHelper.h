@@ -6,15 +6,16 @@
 
 #import <Foundation/Foundation.h>
 #import "UICollectionViewLayout_Warpable.h"
+#import "PSTCollectionView.h"
 
 @interface LSCollectionViewLayoutHelper : NSObject
 
-- (id)initWithCollectionViewLayout:(UICollectionViewLayout<UICollectionViewLayout_Warpable>*)collectionViewLayout;
+- (id)initWithCollectionViewLayout:(PSTCollectionViewLayout<UICollectionViewLayout_Warpable>*)collectionViewLayout;
 
 - (NSArray *)modifiedLayoutAttributesForElements:(NSArray *)elements;
 - (NSIndexPath *)translateIndexPath:(NSIndexPath *)indexPath;
 
-@property (nonatomic, weak, readonly) UICollectionViewLayout<UICollectionViewLayout_Warpable> *collectionViewLayout;
+@property (nonatomic, weak, readonly) PSTCollectionViewLayout<UICollectionViewLayout_Warpable> *collectionViewLayout;
 @property (strong, nonatomic) NSIndexPath *warpFromIndexPath;
 @property (strong, nonatomic) NSIndexPath *warpToIndexPath;
 @property (strong, nonatomic) NSIndexPath *hiddenIndexPath;

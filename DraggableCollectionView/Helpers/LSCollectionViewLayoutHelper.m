@@ -14,7 +14,7 @@
 
 @implementation LSCollectionViewLayoutHelper
 
-- (id)initWithCollectionViewLayout:(UICollectionViewLayout<UICollectionViewLayout_Warpable>*)collectionViewLayout
+- (id)initWithCollectionViewLayout:(PSTCollectionViewLayout<UICollectionViewLayout_Warpable>*)collectionViewLayout
 {
     self = [super init];
     if (self) {
@@ -33,7 +33,7 @@
     [_cellMap removeAllObjects];
     
     if (toIndexPath == nil) {
-        for (UICollectionViewLayoutAttributes *layoutAttributes in elements) {
+        for (PSTCollectionViewLayoutAttributes *layoutAttributes in elements) {
             if ([layoutAttributes.indexPath isEqual:hideIndexPath]) {
                 layoutAttributes.hidden = YES;
             }
@@ -41,7 +41,7 @@
     }
     // Item moved to different place in same section
     else if(fromIndexPath.section == toIndexPath.section) {
-        for (UICollectionViewLayoutAttributes *layoutAttributes in elements) {
+        for (PSTCollectionViewLayoutAttributes *layoutAttributes in elements) {
             if(layoutAttributes.representedElementCategory != UICollectionElementCategoryCell) {
                 continue;
             }
@@ -76,9 +76,9 @@
         NSInteger targetSectionCount = [self.collectionViewLayout.collectionView numberOfItemsInSection:toIndexPath.section];
         NSIndexPath *indexPathToRemove = [NSIndexPath indexPathForItem:sourceSectionCount - 1 inSection:fromIndexPath.section];
         NSIndexPath *indexPathToInsert = [NSIndexPath indexPathForItem:targetSectionCount inSection:toIndexPath.section];
-        UICollectionViewLayoutAttributes *insertLayoutAttributes = [self.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPathToInsert];
+        PSTCollectionViewLayoutAttributes *insertLayoutAttributes = [self.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPathToInsert];
         
-        for (UICollectionViewLayoutAttributes *layoutAttributes in elements) {
+        for (PSTCollectionViewLayoutAttributes *layoutAttributes in elements) {
             if(layoutAttributes.representedElementCategory != UICollectionElementCategoryCell) {
                 continue;
             }

@@ -7,8 +7,9 @@
 #import <UIKit/UIKit.h>
 #import "UICollectionViewLayout_Warpable.h"
 #import "LSCollectionViewLayoutHelper.h"
+#import "PSTCollectionView.h"
 
-@interface DraggableCollectionViewFlowLayout : UICollectionViewFlowLayout <UICollectionViewLayout_Warpable>
+@interface DraggableCollectionViewFlowLayout : PSTCollectionViewFlowLayout <UICollectionViewLayout_Warpable>
 
 @property (readonly, nonatomic) LSCollectionViewLayoutHelper *layoutHelper;
 @end

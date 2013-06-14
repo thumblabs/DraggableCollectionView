@@ -5,9 +5,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSTCollectionView.h"
 #import "UICollectionViewDataSource_Draggable.h"
 
-@interface UICollectionView (Draggable)
+@interface PSTCollectionView (Draggable)
 
 @property (nonatomic, assign) BOOL draggable;
 @property (nonatomic, assign) UIEdgeInsets scrollingEdgeInsets;

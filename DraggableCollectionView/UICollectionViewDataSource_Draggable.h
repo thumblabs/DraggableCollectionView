@@ -5,12 +5,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSTCollectionView.h"
 
 @class LSCollectionViewHelper;
 
-@protocol UICollectionViewDataSource_Draggable <UICollectionViewDataSource>
+@protocol UICollectionViewDataSource_Draggable <PSTCollectionViewDataSource>
 @required
 
-- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
-- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)collectionView:(PSTCollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;
+- (BOOL)collectionView:(PSTCollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
